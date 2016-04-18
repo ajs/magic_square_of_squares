@@ -62,6 +62,19 @@ Here are some other interesting command-lines:
 
     $ python mss_finder.py -u 1
 
+##Using the `-t` flag
+
+This flag lets you exit after a set number of permutations are checked.
+
+    $ while true ; do python mss_finder.py -u 60 -t 1000000 -s $RANDOM -r || continue; echo "WE DID IT\!\!\!"; break; done
+    At step 17629
+    At step 6091
+    At step 14787
+    At step 23375
+    At step 10218
+
+This particular command-line relies on features of the bash shell, but most command-line environments can do something similar.
+
 #As a library
 
 The mss_finder.py file is a valid python module. If imported, it can be used like so:

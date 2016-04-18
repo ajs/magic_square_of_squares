@@ -32,6 +32,10 @@ def arg_parser():
         '-m', '--min-root',
         type=int, default=1, metavar='N',
         help="Do not consider squares with a root less than this")
+    parser.add_argument(
+        '-t', '--tests',
+        type=int, default=None, metavar='N',
+        help="Number of checks to perform, default unlimited")
     return parser
 
 
@@ -83,7 +87,7 @@ class SquareSquareFinder(object):
         self.quiet = quiet
         self.verbose = verbose
 
-    def find(self, step=9):
+    def find(self, step=9, max_tests=None):
         min_root = self.min_root
         start_t = time.time()
         last_t = start_t
@@ -139,6 +143,8 @@ class SquareSquareFinder(object):
                             return self.square_square(square)
                         if self.verbose:
                             self.print_sq(list(new_corner) + list(b_p))
+                        if max_tests and tests >= max_tests:
+                            return None
             step += 1
 
     def validate(self, square, step):
@@ -218,7 +224,8 @@ def main():
         quiet=opts.quiet,
         verbose=opts.verbose,
         random_combinations=opts.random_combinations)
-    sf.find(step)
+    result = sf.find(step, max_tests=opts.tests)
+    sys.exit(0 if result else 1)
 
 
 if __name__ == '__main__':
