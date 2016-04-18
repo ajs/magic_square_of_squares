@@ -13,66 +13,66 @@ were deliberately skipped by use of the `--step` flag.
 
 #Examples
 
-	$ python mss_finder.py -u 10
-	At step 9
-	At step 10
-	At step 11
-	At step 12
-	10 seconds in, after 2412783 tests
-	Current square is:
-			   /= 166
-	     1     4    49  = 54
-	     9    81   100  = 190
-	    36    25   144  = 205
-	  ---------------- \= 226
-	    46   110   293
+    $ python mss_finder.py -u 10
+    At step 9
+    At step 10
+    At step 11
+    At step 12
+    10 seconds in, after 2412783 tests
+    Current square is:
+                       /= 166
+          1     4    49  = 54
+          9    81   100  = 190
+         36    25   144  = 205
+       ---------------- \= 226
+         46   110   293
 
-	Rows work:
-			   /= 189
-	     4    25   144  = 173
-	    16    36   121  = 173
-	     9    64   100  = 173
-	  ---------------- \= 140
-	    29   125   365
+     Rows work:
+                        /= 189
+          4    25   144  = 173
+         16    36   121  = 173
+          9    64   100  = 173
+       ---------------- \= 140
+         29   125   365
 
-	This is the last row-only update.
-	20 seconds in, after 4830536 tests
-	Current square is:
-			   /= 74
-	     4   144    16  = 164
-	    64    49    25  = 138
-	     9   121    81  = 211
-	  ---------------- \= 134
-	    77   314   122
+     This is the last row-only update.
+     20 seconds in, after 4830536 tests
+     Current square is:
+                        /= 74
+          4   144    16  = 164
+         64    49    25  = 138
+          9   121    81  = 211
+       ---------------- \= 134
+         77   314   122
 
-        ... and so on
+     ... and so on
 
 
 Here are some other interesting command-lines:
 
 ##Search starting from 1000
 
-  $ python mss_finder.py --step 1000
+    $ python mss_finder.py --step 1000
 
 ##Search starting from 1000, randomly
 
-  $ python mss_finder.py -s 1000 -r
+    $ python mss_finder.py -s 1000 -r
 
 ##Print a status update every second
 
-  $ python mss_finder.py -u 1
+    $ python mss_finder.py -u 1
 
 #As a library
 
 The mss_finder.py file is a valid python module. If imported, it can be used like so:
 
-  import mss_finder
+    import mss_finder
 
-  finder = mss_finder.SquareSquareFinder(
-    random_combinations=False,
-    update=0,
-    quiet=True,
-    verbose=False)
-  finished_square = finder.find(step=9)
-  # and wait a few centuries...
+    finder = mss_finder.SquareSquareFinder(
+      random_combinations=False,
+      update=0,
+      quiet=True,
+      verbose=False)
+    finished_square = finder.find(step=9)
+    # and wait a few centuries...
 
