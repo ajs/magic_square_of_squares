@@ -188,7 +188,7 @@ class SquareSquareFinder(object):
         if sum(s[i] for i in (0,3,6)) != t: return False
         if sum(s[i] for i in (1,4,7)) != t: return False
         if sum(s[i] for i in (2,5,8)) != t: return False
-        if not self.queit:
+        if not self.quiet:
             print "Rows+Cols work:"
             self.print_sq(sq)
         if sum(s[i] for i in (0,4,8)) != t: return False
